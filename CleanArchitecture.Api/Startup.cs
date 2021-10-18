@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CleanArchitecture.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,9 +33,9 @@ namespace CleanArchitecture.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CleanArchitecture.Api", Version = "v1" });
             });
-
+            services.AddAutoMapper(typeof(Startup));
             services.AddInfrastructureServices(Configuration);
-            services.AddAppicationServices(Configuration);
+            services.AddApplicationServices(Configuration);
             
         }
 

@@ -1,5 +1,8 @@
-public class GadgetDto
+namespace CleanArchitecture.Application.DTOs
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
+    public class GadgetDto
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
 }

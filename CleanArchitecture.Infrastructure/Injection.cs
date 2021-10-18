@@ -1,17 +1,25 @@
+using CleanArchitecture.Application.Interfaces.Data;
+using CleanArchitecture.Application.Interfaces.Repositories;
+using CleanArchitecture.Infrastructure.DbContext;
+using CleanArchitecture.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-public static class Injection
+namespace CleanArchitecture.Infrastructure
 {
-    public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
+    public static class Injection
     {
-        services.AddDbContext<MyDbContext>(options => {
-            var connectionString = configuration.GetConnectionString("MyDbConnection");
-            options.UseSqlServer(connectionString);
-        });
+        public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddDbContext<MyDbContext>(options => {
+                var connectionString = configuration.GetConnectionString("MyDbConnection");
+                options.UseSqlServer(connectionString);
+            });
 
-        services.AddScoped<IMyDbContext>(options => options.GetService<MyDbContext>());
-        return services;
+            services.AddScoped<IMyDbContext>(options => options.GetService<MyDbContext>());
+            services.AddScoped<IGadgetRepository, GadgetRepository>();
+            return services;
+        }
     }
 }

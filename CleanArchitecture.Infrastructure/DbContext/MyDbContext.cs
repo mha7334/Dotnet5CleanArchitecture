@@ -1,10 +1,15 @@
+using CleanArchitecture.Application.Interfaces.Data;
+using CleanArchitecture.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-public class MyDbContext : DbContext, IMyDbContext
+namespace CleanArchitecture.Infrastructure.DbContext
 {
+    public class MyDbContext : Microsoft.EntityFrameworkCore.DbContext, IMyDbContext
+    {
 
     
-    public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) {}
+        public MyDbContext(DbContextOptions<MyDbContext> options) : base(options) {}
     
-    public DbSet<Gadget> Gadgets { get;  set;}
+        public DbSet<Gadget> Gadgets { get;  set;}
+    }
 }

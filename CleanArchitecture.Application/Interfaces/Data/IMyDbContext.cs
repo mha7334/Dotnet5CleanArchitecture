@@ -1,6 +1,10 @@
+using CleanArchitecture.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-public interface IMyDbContext
+namespace CleanArchitecture.Application.Interfaces.Data
 {
-    public DbSet<Gadget> Gadgets {get; set;}
+    public interface IMyDbContext
+    {
+        public DbSet<Gadget> Gadgets {get; set;}
+    }
 } 
