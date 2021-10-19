@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CleanArchitecture.Api.Middleware;
 using CleanArchitecture.Infrastructure;
 using HealthChecks.UI.Client;
 using HealthChecks.UI.Configuration;
@@ -54,11 +55,17 @@ namespace CleanArchitecture.Api
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                 app.ConfigureSwagger(provider);
+                //app.UseDeveloperExceptionPage();
+                app.UseHttpCodeAndLogMiddleware();
+
+            }
+            else
+            {
+                app.UseHttpCodeAndLogMiddleware();
+                app.UseHsts();
             }
 
-            
+            app.ConfigureSwagger(provider);
 
             app.UseHttpsRedirection();
             app.UseRouting();
