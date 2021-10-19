@@ -4,11 +4,12 @@ using CleanArchitecture.Domain.Entities;
 
 namespace CleanArchitecture.Api.Automapper
 {
-    public class MapperProfile : Profile
+    public class GadgetMapperProfile : Profile
     {
-        public MapperProfile()
+        public GadgetMapperProfile()
         {
             CreateMap<Gadget,GadgetDto>();
+            
         }
     }
 }

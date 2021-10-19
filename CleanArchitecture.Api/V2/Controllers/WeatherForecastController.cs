@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using CleanArchitecture.Application.DTOs;
+using CleanArchitecture.Api.ApiContstants;
 using CleanArchitecture.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace CleanArchitecture.Api.Controllers
+namespace CleanArchitecture.Api.V2.Controllers
 {
+    [Route("api/" + ApiConstants.ApiName + "/v{api-version:apiVersion}/[controller]")]
+    [ApiVersion("2.0")]
     [ApiController]
-    [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
        
@@ -22,13 +21,11 @@ namespace CleanArchitecture.Api.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly IGadgetService _service;
-        private readonly IMapper _mapper;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IGadgetService service, IMapper mapper)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IGadgetService service)
         {
             _logger = logger;
             _service = service;
-            _mapper = mapper;
         }
 
         [HttpGet]
@@ -45,12 +42,6 @@ namespace CleanArchitecture.Api.Controllers
         }
 
 
-         [HttpGet]
-         [Route("test")]
-        public async Task<IEnumerable<GadgetDto>> GetTest()
-        {
-            var gadgets =await  _service.GetAllGadgets();
-            return  _mapper.Map<List<GadgetDto>>(gadgets); 
-        }
+        
     }
 }
