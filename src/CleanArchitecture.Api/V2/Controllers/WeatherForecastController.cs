@@ -11,7 +11,9 @@ namespace CleanArchitecture.Api.V2.Controllers
     [Route("api/" + ApiConstants.ApiName + "/v{api-version:apiVersion}/[controller]")]
     [ApiVersion("2.0")]
     [ApiController]
+#pragma warning disable 1591
     public class WeatherForecastController : ControllerBase
+#pragma warning restore 1591
     {
        
         private static readonly string[] Summaries = new[]
@@ -29,7 +31,9 @@ namespace CleanArchitecture.Api.V2.Controllers
         }
 
         [HttpGet]
+#pragma warning disable 1591
         public IEnumerable<WeatherForecast> Get()
+#pragma warning restore 1591
         {
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

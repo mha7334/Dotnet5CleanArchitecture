@@ -82,11 +82,7 @@ namespace CleanArchitecture.Api
             return info;
         }
 
-        /// <summary>
-        /// ConfigureSwagger
-        /// </summary>
-        /// <param name="app"></param>
-        /// <returns></returns>
+        
         public static IApplicationBuilder ConfigureSwagger(this IApplicationBuilder app, IApiVersionDescriptionProvider provider)
         {
 

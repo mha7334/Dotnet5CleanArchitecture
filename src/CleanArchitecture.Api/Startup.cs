@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CleanArchitecture.Infrastructure;
+using HealthChecks.UI.Client;
+using HealthChecks.UI.Configuration;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -31,12 +34,21 @@ namespace CleanArchitecture.Api
 
             services.AddControllers();
 
+            //services.AddHealthChecks().AddSqlServer(Configuration.GetConnectionString("MyDbConnection"));
+
+            //services.AddHealthChecksUI().AddSqlServerStorage(Configuration.GetConnectionString("MyDbConnection"));
+
+            services.ConfigureCors();
+
             services.ConfigureSwagger();
 
             services.AddAutoMapper(typeof(Startup));
             services.AddInfrastructureServices(Configuration);
             services.AddApplicationServices(Configuration);
-            
+
+            services.ConfigureHealthChecks(Configuration);
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +66,8 @@ namespace CleanArchitecture.Api
 
             app.UseHttpsRedirection();
 
+            //app.UseHealthChecks("/hc");
+            //app.UseHealthChecksUI();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -61,6 +75,16 @@ namespace CleanArchitecture.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("api/health", new HealthCheckOptions()
+                {
+                    Predicate = _ => true,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                });
+                app.UseHealthChecksUI(delegate(Options options)
+                {
+                    options.UIPath = "/healthcheck-ui";
+                    //options.AddCustomStylesheet("./HealthCheck/Custom.css");
+                });
             });
         }
     }

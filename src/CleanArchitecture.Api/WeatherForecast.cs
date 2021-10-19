@@ -2,7 +2,9 @@ using System;
 
 namespace CleanArchitecture.Api
 {
+#pragma warning disable 1591
     public class WeatherForecast
+#pragma warning restore 1591
     {
         public DateTime Date { get; set; }
 
