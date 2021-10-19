@@ -34,10 +34,6 @@ namespace CleanArchitecture.Api
 
             services.AddControllers();
 
-            //services.AddHealthChecks().AddSqlServer(Configuration.GetConnectionString("MyDbConnection"));
-
-            //services.AddHealthChecksUI().AddSqlServerStorage(Configuration.GetConnectionString("MyDbConnection"));
-
             services.ConfigureCors();
 
             services.ConfigureSwagger();
@@ -48,6 +44,8 @@ namespace CleanArchitecture.Api
 
             services.ConfigureHealthChecks(Configuration);
 
+            services.AddHttpClient();
+
 
         }
 
@@ -57,17 +55,12 @@ namespace CleanArchitecture.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //app.UseSwagger();
-                //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CleanArchitecture.Api v1"));
-                app.ConfigureSwagger(provider);
+                 app.ConfigureSwagger(provider);
             }
 
             
 
             app.UseHttpsRedirection();
-
-            //app.UseHealthChecks("/hc");
-            //app.UseHealthChecksUI();
             app.UseRouting();
 
             app.UseAuthorization();
