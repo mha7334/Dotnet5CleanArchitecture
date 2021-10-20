@@ -55,8 +55,7 @@ namespace CleanArchitecture.Api
         {
             if (env.IsDevelopment())
             {
-                //app.UseDeveloperExceptionPage();
-                app.UseHttpCodeAndLogMiddleware();
+                app.UseDeveloperExceptionPage();
 
             }
             else
