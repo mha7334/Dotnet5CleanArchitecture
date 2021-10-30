@@ -98,3 +98,12 @@ C:\repo\dotnet5CleanArchitecture\tests\CleanArchitecutre.Api.Tests\obj\Debug\net
 C:\repo\dotnet5CleanArchitecture\tests\CleanArchitecutre.Api.Tests\obj\Debug\net5.0\ref\CleanArchitecutre.Api.Tests.dll
 C:\repo\dotnet5CleanArchitecture\tests\CleanArchitecutre.Api.Tests\obj\Debug\net5.0\CleanArchitecutre.Api.Tests.pdb
 C:\repo\dotnet5CleanArchitecture\tests\CleanArchitecutre.Api.Tests\obj\Debug\net5.0\CleanArchitecutre.Api.Tests.genruntimeconfig.cache
+C:\repo\dotnet5CleanArchitecture\tests\CleanArchitecutre.Api.Tests\bin\Debug\net5.0\Microsoft.Extensions.Configuration.dll
+C:\repo\dotnet5CleanArchitecture\tests\CleanArchitecutre.Api.Tests\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\repo\dotnet5CleanArchitecture\tests\CleanArchitecutre.Api.Tests\bin\Debug\net5.0\Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+C:\repo\dotnet5CleanArchitecture\tests\CleanArchitecutre.Api.Tests\bin\Debug\net5.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\repo\dotnet5CleanArchitecture\tests\CleanArchitecutre.Api.Tests\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Json.dll
+C:\repo\dotnet5CleanArchitecture\tests\CleanArchitecutre.Api.Tests\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\repo\dotnet5CleanArchitecture\tests\CleanArchitecutre.Api.Tests\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\repo\dotnet5CleanArchitecture\tests\CleanArchitecutre.Api.Tests\bin\Debug\net5.0\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\repo\dotnet5CleanArchitecture\tests\CleanArchitecutre.Api.Tests\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll

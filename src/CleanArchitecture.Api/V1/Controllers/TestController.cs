@@ -23,7 +23,7 @@ namespace CleanArchitecture.Api.V1.Controllers
         [HttpGet]
         public async Task<IEnumerable<GadgetDto>> Get()
         {
-            throw new ArgumentNullException();
+            //throw new ArgumentNullException();
             var gadgets = await _service.GetAllGadgets();
             return gadgets.MapList<Gadget, GadgetDto>();
         }

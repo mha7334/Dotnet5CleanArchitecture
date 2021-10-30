@@ -11,7 +11,7 @@ namespace CleanArchitecture.Application.Interfaces.Repositories
     {
         Task<IEnumerable<Gadget>> GetAllGadgets();
         Task<Gadget> GetGadgetById(int id);
-        Task<bool> CreateGadget(Gadget feedback);
+        Task<Gadget> CreateGadget(Gadget feedback);
         Task<bool> DeleteGadget(int id);
     }
 }

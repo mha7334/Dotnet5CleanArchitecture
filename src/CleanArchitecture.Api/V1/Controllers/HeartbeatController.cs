@@ -23,5 +23,44 @@ namespace CleanArchitecture.Api.V1.Controllers
         {
             return Task.FromResult<ActionResult<bool>>(Ok(true));
         }
+
+        [HttpGet]
+        [Route("call/{n}")]
+        public Task<ActionResult<string>> CallMethod(string i)
+        {
+
+            if (i == "1")
+            {
+                
+                f();
+                return Task.FromResult<ActionResult<string>>(Ok("calling f"));
+            }
+
+            if (i == "2")
+            {
+                
+                g();
+                return Task.FromResult<ActionResult<string>>(Ok("calling g"));
+            }
+
+            return Task.FromResult<ActionResult<string>>(Ok("calling nothing"));
+        }
+
+
+        static async void f()
+        {
+            await h();
+        }
+
+        static async Task g()
+        {
+            await h();
+        }
+
+        static async Task h()
+        {
+            await Task.FromResult("abc");
+            throw new Exception();
+        }
     }
 }

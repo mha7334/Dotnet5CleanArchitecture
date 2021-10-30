@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using CleanArchitecture.Application.Interfaces.Data;
@@ -25,19 +26,23 @@ namespace CleanArchitecture.Infrastructure.Repositories
             return await _context.Gadgets.ToListAsync();
         }
 
-        public Task<Gadget> GetGadgetById(int id)
+        public async Task<Gadget> GetGadgetById(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Gadgets.FindAsync(id);
         }
 
-        public Task<bool> CreateGadget(Gadget feedback)
+        public async Task<Gadget> CreateGadget(Gadget feedback)
         {
             throw new NotImplementedException();
+            //await _context.Gadgets.AddAsync(feedback);
+            //_context.Gadgets.Attach(feedback);
+            //_context.SaveChangesAsync();
         }
 
         public Task<bool> DeleteGadget(int id)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(true);
         }
+        
     }
 }
